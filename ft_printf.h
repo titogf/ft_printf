@@ -3,4 +3,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+int	ft_printf(const char *str, ...);
+int	ft_return_arg(const char *str, va_list lst);
+
 #endif

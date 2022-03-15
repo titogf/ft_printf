@@ -1,5 +1,5 @@
 NAME = libftprintf.a
-SRC = 
+SRC = ft_printf
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -17,10 +17,11 @@ $(NAME): $(OBJ)
 clean:
 	rm -f $(OBJ)
 
-n:
-	norminette
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+n:
+	norminette
