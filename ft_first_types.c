@@ -8,7 +8,7 @@ int	ft_type_null(void)
 
 int	ft_type_c(char str)
 {
-	write(1, &str, 1)
+	write(1, &str, 1);
 	return (1);
 }
 
