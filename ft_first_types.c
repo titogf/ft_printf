@@ -45,7 +45,7 @@ int	ft_type_di(int	n)
 	if (n < 10)
 	{
 		n += 48;
-		write(1, &n, 1)
+		write(1, &n, 1);
 		result++;
 		return (result);
 	}
