@@ -2,9 +2,9 @@
 
 int	ft_printf(const char *str, ...)
 {
+	va_list	lst;
 	int	i;
 	int	result;
-	va_list	lst;
 
 	va_start(lst, str);
 	i = 0;
@@ -34,7 +34,7 @@ int	ft_return_arg(const char *str, va_list lst)
 
 	string = va_arg(lst, char *);
 	if (!string && *str == s)
-		return (ft_type_NULL());
+		return (ft_type_null());
 	if (*str == c)
 		return (ft_type_c((char) string));
 	if (*str == s)
@@ -42,7 +42,7 @@ int	ft_return_arg(const char *str, va_list lst)
 	if (*str == p)
 		return (ft_type_p);
 	if (*str == d || *str == i)
-		return (ft_type_di((int) string);
+		return (ft_type_di((int) string));
 	if (*str == u)
 		return (ft_type_u);
 	if (*str == x)
@@ -51,5 +51,5 @@ int	ft_return_arg(const char *str, va_list lst)
 		return (ft_type_X);
 	if (*str == %)
 		return (ft_type_c(%));
-	return (-1); 
+	return (-1);
 }
