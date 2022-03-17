@@ -11,5 +11,6 @@ int	ft_type_c(char str);
 int	ft_type_s(char *str);
 int	ft_type_di(int n);
 int	ft_cantidad(int n);
+int	ft_type_u(unsigned int n);
 
 #endif

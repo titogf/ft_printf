@@ -43,8 +43,8 @@ int	ft_return_arg(const char *str, va_list lst)
 	//	return (ft_type_p);
 	if (*str == 'd' || *str == 'i')
 		return (ft_type_di((int) string));
-	//if (*str == 'u')
-	//	return (ft_type_u);
+	if (*str == 'u')
+		return (ft_type_u((unsigned int) string));
 	//if (*str == 'x')
 	//	return (ft_type_x);
 	//if (*str == 'X')
