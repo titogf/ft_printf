@@ -12,5 +12,7 @@ int	ft_type_s(char *str);
 int	ft_type_di(int n);
 int	ft_cantidad(int n);
 int	ft_type_u(unsigned int n);
+int	ft_type_x(unsigned int n);
+int	ft_long(unsigned int n);
 
 #endif

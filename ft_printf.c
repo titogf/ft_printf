@@ -45,8 +45,8 @@ int	ft_return_arg(const char *str, va_list lst)
 		return (ft_type_di((int) string));
 	if (*str == 'u')
 		return (ft_type_u((unsigned int) string));
-	//if (*str == 'x')
-	//	return (ft_type_x);
+	if (*str == 'x')
+		return (ft_type_x((unsigned int) string));
 	//if (*str == 'X')
 	//	return (ft_type_X);
 	if (*str == '%')
