@@ -16,6 +16,8 @@ int	ft_printf(const char *str, ...)
 			i++;
 			if (str[i])
 				result += ft_return_arg(str + i, lst);
+			else
+				result++;
 		}
 		else
 		{

@@ -44,17 +44,17 @@ int	ft_type_x(unsigned int n)
 		a = n % 10;
 		if (a == 10 || a == 11 || a == 12 || a == 13 || a == 14 || a == 15)
 		{
-			if (n % 10 == 10)
+			if (a == 10)
 				s[i] = 'a';
-			if (n % 10 == 11)
+			if (a == 11)
 				s[i] = 'b';
-			if (n % 10 == 12)
+			if (a == 12)
 				s[i] = 'c';
-			if (n % 10 == 13)
+			if (a == 13)
 				s[i] = 'd';
-			if (n % 10 == 14)
+			if (a == 14)
 				s[i] = 'e';
-			if (n % 10 == 15)
+			if (a == 15)
 				s[i] = 'f';
 		}
 		else
@@ -81,8 +81,3 @@ int	ft_long(unsigned int n)
 	}
 	return (i);
 }
-
-
-
-
-
