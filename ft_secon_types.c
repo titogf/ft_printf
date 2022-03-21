@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_secon_types.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 12:57:52 by gfernand          #+#    #+#             */
+/*   Updated: 2022/03/21 17:11:16 by gfernand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_type_u(unsigned int n)
 {
-	char	*s;
-	int		longi;
-	int		i;
+	char			*s;
+	int				longi;
+	int				i;
 	unsigned int	b;
 
 	b = n;
@@ -32,37 +44,45 @@ int	ft_type_u(unsigned int n)
 int	ft_type_x(unsigned int n)
 {
 	char	*s;
-	int	i;
-	int	a;
-	int	longi;
+	char	*a;
+	int		i;
+	int		longi;
 
-	longi = ft_long(n);	
+	a = "0123456789abcdef";
+	longi = ft_long(n);
 	s = malloc(sizeof(char) * (longi + 1));
 	i = longi - 1;
 	while (n >= 16)
 	{
-		a = n % 10;
-		if (a == 10 || a == 11 || a == 12 || a == 13 || a == 14 || a == 15)
-		{
-			if (a == 10)
-				s[i] = 'a';
-			if (a == 11)
-				s[i] = 'b';
-			if (a == 12)
-				s[i] = 'c';
-			if (a == 13)
-				s[i] = 'd';
-			if (a == 14)
-				s[i] = 'e';
-			if (a == 15)
-				s[i] = 'f';
-		}
-		else
-			s[i] = (n % 10) + 48;
-		n /= 10;
+		s[i] = *(a + (n % 16));
+		n /= 16;
 		i--;
 	}
-	s[i] = (n % 10) + 48;
+	s[i] = *(a + (n % 16));
+	s[longi] = '\0';
+	i = ft_type_s(s);
+	free(s);
+	return (i);
+}
+
+int	ft_type_upperx(unsigned int n)
+{
+	char	*s;
+	char	*a;
+	int		i;
+	int		longi;
+
+	a = "0123456789ABCDEF";
+	longi = ft_long(n);
+	s = malloc(sizeof(char) * (longi + 1));
+	i = longi - 1;
+	while (n >= 16)
+	{
+		s[i] = *(a + (n % 16));
+		n /= 16;
+		i--;
+	}
+	s[i] = *(a + (n % 16));
 	s[longi] = '\0';
 	i = ft_type_s(s);
 	free(s);
@@ -81,3 +101,5 @@ int	ft_long(unsigned int n)
 	}
 	return (i);
 }
+
+int	ft_type_p

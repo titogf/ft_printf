@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/21 12:58:02 by gfernand          #+#    #+#             */
+/*   Updated: 2022/03/21 17:10:21 by gfernand         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	lst;
-	int	i;
-	int	result;
+	int		i;
+	int		result;
 
 	va_start(lst, str);
-	i = 0;
+	i = -1;
 	result = 0;
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '%')
 		{
@@ -24,7 +36,6 @@ int	ft_printf(const char *str, ...)
 			write(1, str + i, 1);
 			result++;
 		}
-	i++;
 	}
 	va_end(lst);
 	return (result);
@@ -41,16 +52,16 @@ int	ft_return_arg(const char *str, va_list lst)
 		return (ft_type_c((char) string));
 	if (*str == 's')
 		return (ft_type_s((char *) string));
-	//if (*str == 'p')
-	//	return (ft_type_p);
+	if (*str == 'p')
+		return (ft_type_p);
 	if (*str == 'd' || *str == 'i')
 		return (ft_type_di((int) string));
 	if (*str == 'u')
 		return (ft_type_u((unsigned int) string));
 	if (*str == 'x')
 		return (ft_type_x((unsigned int) string));
-	//if (*str == 'X')
-	//	return (ft_type_X);
+	if (*str == 'X')
+		return (ft_type_upperx((unsigned int) string));
 	if (*str == '%')
 		return (ft_type_c('%'));
 	return (-1);
