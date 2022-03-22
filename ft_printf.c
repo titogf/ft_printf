@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 12:58:02 by gfernand          #+#    #+#             */
-/*   Updated: 2022/03/22 14:13:11 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/03/22 18:13:39 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int	ft_printf(const char *str, ...)
 			i++;
 			if (str[i])
 				result += ft_return_arg(str + i, lst);
-			else
-				result++;
 		}
 		else
 		{
@@ -45,6 +43,8 @@ int	ft_return_arg(const char *str, va_list lst)
 {
 	void	*string;
 
+	if (*str == '%')
+		return (ft_type_c('%'));
 	string = va_arg(lst, char *);
 	if (!string && *str == 's')
 		return (ft_type_null());
@@ -62,7 +62,5 @@ int	ft_return_arg(const char *str, va_list lst)
 		return (ft_type_x((unsigned int) string));
 	if (*str == 'X')
 		return (ft_type_upperx((unsigned int) string));
-	if (*str == '%')
-		return (ft_type_c('%'));
 	return (0);
 }
