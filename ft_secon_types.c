@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 12:57:52 by gfernand          #+#    #+#             */
-/*   Updated: 2022/03/21 17:11:16 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:37:42 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,17 +89,30 @@ int	ft_type_upperx(unsigned int n)
 	return (i);
 }
 
-int	ft_long(unsigned int n)
+int	ft_type_p(unsigned long int n)
 {
-	int	i;
+	char				*s;
+	char				*a;
+	unsigned long int	i;
+	unsigned long int	longi;
 
-	i = 1;
+	longi = ft_longp(n);
+	if (longi == 0)
+		return (3);
+	a = "0123456789abcdef";
+	s = malloc(sizeof(char) * (longi + 1));
+	i = longi - 1;
 	while (n >= 16)
 	{
+		s[i] = *(a + (n % 16));
 		n /= 16;
-		i++;
+		i--;
 	}
+	s[i] = *(a + (n % 16));
+	s[0] = '0';
+	s[1] = 'x';
+	s[longi] = '\0';
+	i = ft_type_s(s);
+	free(s);
 	return (i);
 }
-
-int	ft_type_p

@@ -1,67 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_first_types.c                                   :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 12:57:42 by gfernand          #+#    #+#             */
-/*   Updated: 2022/03/22 14:36:56 by gfernand         ###   ########.fr       */
+/*   Created: 2022/03/22 14:34:35 by gfernand          #+#    #+#             */
+/*   Updated: 2022/03/22 14:40:35 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_type_null(void)
-{
-	write(1, "(null)", 6);
-	return (6);
-}
-
-int	ft_type_c(char str)
-{
-	write(1, &str, 1);
-	return (1);
-}
-
-int	ft_type_s(char *str)
+int	ft_long(unsigned int n)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
+	i = 1;
+	while (n >= 16)
 	{
-		write(1, str + i, 1);
+		n /= 16;
 		i++;
 	}
 	return (i);
 }
 
-int	ft_type_di(int n)
+int	ft_cantidad(int n)
 {
-	char	*s;
-	int		longi;
-	int		i;
+	int	contador;
 
-	longi = ft_cantidad(n);
 	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
 		return (11);
-	s = malloc(sizeof(char) * (longi + 1));
+	}
+	contador = 1;
 	if (n < 0)
+		contador++;
+	while (n >= 10 || n <= -10)
 	{
-		s[0] = '-';
-		n = n * (-1);
-	}
-	i = longi - 1;
-	while (n >= 10)
-	{
-		s[i] = (n % 10) + 48;
 		n /= 10;
-		i--;
+		contador++;
 	}
-	s[i] = (n % 10) + 48;
-	s[longi] = '\0';
-	i = ft_type_s(s);
-	free(s);
+	return (contador);
+}
+
+int	ft_longp(unsigned long int n)
+{
+	int	i;
+
+	if (n == 0)
+	{
+		write(1, "0x0", 3);
+		return (0);
+	}
+	i = 3;
+	while (n >= 16)
+	{
+		n /= 16;
+		i++;
+	}
 	return (i);
 }

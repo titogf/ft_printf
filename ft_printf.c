@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 12:58:02 by gfernand          #+#    #+#             */
-/*   Updated: 2022/03/21 17:10:21 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:13:11 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	ft_return_arg(const char *str, va_list lst)
 	if (*str == 's')
 		return (ft_type_s((char *) string));
 	if (*str == 'p')
-		return (ft_type_p);
+		return (ft_type_p((unsigned long int) string));
 	if (*str == 'd' || *str == 'i')
 		return (ft_type_di((int) string));
 	if (*str == 'u')
@@ -64,5 +64,5 @@ int	ft_return_arg(const char *str, va_list lst)
 		return (ft_type_upperx((unsigned int) string));
 	if (*str == '%')
 		return (ft_type_c('%'));
-	return (-1);
+	return (0);
 }

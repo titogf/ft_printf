@@ -6,7 +6,7 @@
 /*   By: gfernand <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 13:00:24 by gfernand          #+#    #+#             */
-/*   Updated: 2022/03/21 16:01:07 by gfernand         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:34:24 by gfernand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	ft_type_u(unsigned int n);
 int	ft_type_x(unsigned int n);
 int	ft_type_upperx(unsigned int n);
 int	ft_long(unsigned int n);
+int	ft_type_p(unsigned long int n);
+int	ft_longp(unsigned long int n);
 
 #endif
